@@ -56,8 +56,16 @@ Hier werden Antworten auf immer wieder gestellte Fragen aktualisiert beantwortet
 Dies kann im geclonten (https) Repository mit dem Befehl `git config credential.helper 'cache --timeout=300'` erfolgen. In diesem Beispiel sind Benutzername und Passwort für 5 Minuten gespeichert [1].
 Man kann aber auch über ssh geclonte Repositories kurzfristig einen neuen ssh-key erstellen und diesen in Github bei seinem Account einbinden. Bitte nicht vergessen, diesen nach Beendigung der Verbindung wieder zu deaktivieren!
 
+
 #### *Was genau macht das `DEVICE=` beim flashen des Mikrocontrollers?*
 Es sind beide STM32F4-Discovery Boards am Rechner angeschlossen. Damit nicht immer die Boards herum gehängt werden müssen, ist dieses DEVICE gedacht. Dies hat sonst keine Auswirkungen auf die Programmierung! Im `stm32f4-template` kann mit dem Befehl `make clean flash DEVICE=slave` das entsprechende Discovery-Board (siehe Kamera) programmiert werden. Die Anpassung ist erst vor Kurzem gepushed worden, daher bitte überprüfen, ob dies schon im eigenen `Makefile` vorhanden ist.
+
+
+#### *Ist die Library "xyz" schon auf dem Rechner installiert?*
+Es sind alle notwendigen Elemente zur Ausführung und Programmierung vorhanden. Von der Toolchain unabhängige Bibliotheken sind nicht vorhanden und müssen im eigenen Repository eingebunden werden (z.B. Libraries for STM32Fxxx series by Tilen Majerle).  
+
+Vorsicht bei der Verwendung von Libraries mit gleichen Definitionen (z.B. DHT.h), diese können zu Fehlern beim Kompilieren und Linken führen, da nicht eindeutig ist welche Implementierung zum Builden herangezogen werden soll.
+
 
 #### *Wie geht das? Das funktioniert nicht! Wo bitte schön ist alles?*  
 Für dieses *mimimi* habe ich leider auch keine Lösung! Bitte bei Problemen oder Fragen explizit die Schwierigkeit beschreiben und im jeweiligen Channel in Teams online stellen. Bei komplexeren Anfragen kann ich natürlich direkt und unterstützend eingreifen.
